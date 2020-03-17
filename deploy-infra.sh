@@ -3,7 +3,7 @@
 GITHUB_BRANCH=master
 
 STACK_NAME=awsbootstrap
-REGION=us-east-2
+REGION=us-east-1
 CLI_PROFILE=awsbootstrap
 
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --profile awsbootstrap \
