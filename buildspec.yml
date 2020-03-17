@@ -5,11 +5,12 @@ phases:
     runtime-versions:
       nodejs: 10
   pre_build:
-    comands:
+    commands:
       # run 'npm install' using versions in package-lock.json
       - npm ci
   build:
     commands:
+      # run the build
       - npm run build
 artifacts:
   files:
@@ -18,4 +19,4 @@ artifacts:
     - server.js
     - package.json
     - appspec.yml
-    - node_modules/**/*
+    - 'node_modules/**/*'
