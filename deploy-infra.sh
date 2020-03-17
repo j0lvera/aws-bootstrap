@@ -1,5 +1,7 @@
 #!/bin/bash
 
+GITHUB_BRANCH=master
+
 STACK_NAME=awsbootstrap
 REGION=us-east-2
 CLI_PROFILE=awsbootstrap
@@ -32,7 +34,13 @@ aws cloudformation deploy \
   --no-fail-on-empty-changeset \
   --capabilities CAPABILITY_NAMED_IAM \
   --parameter-overrides \
-    EC2InstanceType=$EC2_INSTANCE_TYPE
+    EC2InstanceType=$EC2_INSTANCE_TYPE \
+    GitHubOwner="$GITHUB_USER" \
+    GitHubRepo="$GITHUB_REPO" \
+    GitHubBranch=$GITHUB_BRANCH \
+    GitHubPersonalAccessToken="$GITHUB_TOKEN" \
+    CodePipelineBucket="$CODEPIPELINE_BUCKET"
+
 
 if [ $? -eq 0 ]; then
   aws cloudformation list-exports \
