@@ -4,7 +4,7 @@ files:
   # unzip the build artifact in ~/app
   - source: /
     destination: /home/ec2-user/app/release
-permisions:
+permissions:
   # change permissions from root to ec2-user
   - object: /home/ec2-user/app/release
     pattern: "**"
@@ -17,6 +17,7 @@ hooks:
       timeout: 300
       runas: ec2-user
   ApplicationStop:
+    # stop the application
     - location: stop-service.sh
       timeout: 300
       runas: ec2-user
